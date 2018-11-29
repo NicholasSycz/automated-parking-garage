@@ -1,0 +1,28 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="printTicket.js"></script>
+</head>
+
+<body>
+  <h1>You will be billed starting at the current time:</h1>
+  <div class="time">
+    <p>
+      <script> document.write(new Date().toLocaleDateString()); </script>
+      <p>on</p>
+      <script> document.write(new Date().toTimeString()); </script>
+    </p>
+  </div>
+  <h1>Click below to obtain your ticket:</h1>
+  <form action="proceed.html" id="print" method="POST">
+    <input onclick="printTicket()" type="submit" value="Submit">
+  </form>
+</body>
+
+</html>
