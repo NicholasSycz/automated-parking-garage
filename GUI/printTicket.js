@@ -14,9 +14,13 @@ const leave = () => {
   openSpot.sort();
   return remove;
 }
-// console.log(park());
-// console.log(park());
-// console.log(openSpot[0]);
-// console.log(closedSpot[0]);
-// console.log(leave());
+console.log(openSpot);
+console.log(park());
+console.log(park());
+console.log(openSpot[0]);
+console.log(closedSpot[0]);
+console.log(leave());
+console.log(openSpot);
+console.log(closedSpot);
+
 
