@@ -2,7 +2,7 @@
 /*
 1. Inserts the time and date the user entered the parking garage into the database table records.
 2. Write to file ticket.txt and gives the customer important information. This will be the ticket printed.
-3. TODO: Implement ticket printed to 
+3. TODO: Implement ticket printed to printer
 4. Checks for a successful connection and sends you to accessGranted.html if valid connection is made.
 */
 include 'DataBaseConnection.php';

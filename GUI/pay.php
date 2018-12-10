@@ -36,7 +36,7 @@
         <div class="row">
           <div class="col align-self-center">
             <form action="../Database/retrieveTime.php" method="POST">
-              <input class="form-control" type="number" value="000">
+              <input class="form-control" type="number" name = "slot" value="000">
               <p></p>
               <input type="submit" class="btn btn-lg btn-primary m-4" value="Go to pay">
             </form>
