@@ -1,14 +1,13 @@
 <!doctype html>
 <!--
-  
-
+ Prompts the user to supply the ticket and then sens them to pay their bill
 -->
 <html class="bg-dark">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="Prompts customer to give ticket and pay">
   <meta name="author" content="APGOD">
   <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -32,12 +31,18 @@
     </header>
 
     <main role="main" class="inner cover">
-      <h1 class="cover-heading p-3">Insert your ticket below then select your parking number</h1>
+      <h1 class="display-3 p-3">Insert your ticket below and select your parking number</h1>
       <p class="lead"></p>
-      <form action="retrieveTime.php" class="p-3" method="POST">
-        <input type="number" name="slot">
-        <input type="submit" class="btn btn-lg btn-primary" value="Go to pay">
-      </form>
+      <div class="container">
+        <div class="row">
+          <div class="col align-self-center">
+            <form action="../Database/retrieveTime.php" method="POST">
+              <input class="form-control" type="number" value="000">
+              <p></p>
+              <input type="submit" class="btn btn-lg btn-primary m-4" value="Go to pay">
+            </form>
+          </div>
+        </div>
     </main>
 
     <footer class="fixed-bottom">

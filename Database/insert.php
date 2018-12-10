@@ -38,7 +38,7 @@ fwrite($ticket, $txt);
 if($connection->query($sql) === TRUE) {
   header("location:../GUI/proceed.html?error=0");
 } else {
-  header("location:../GUI/accessGranted.html?error=1");
+  header("location:../GUI/error.html?error=1");
 }
 
 ?>

@@ -21,9 +21,9 @@ function payment() {
 }
 
 if($connection->query($sql) === TRUE) {
-  header("location:index.html?error=0");
+  header("location:../GUI/paid.html?error=0");
 } else {
-  header("location:accessGranted.html?error=1");
+  header("location:../GUI/error.html?error=1");
 }
 
 $connection->close(); 
