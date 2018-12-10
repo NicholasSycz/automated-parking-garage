@@ -1,4 +1,7 @@
 <?php
+/*
+Connects to the specified server and is called in insert.php
+*/
 
   $serverName = "localhost";
   $databaseName = "parkinggarage001";

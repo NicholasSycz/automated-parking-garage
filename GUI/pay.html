@@ -1,4 +1,8 @@
 <!doctype html>
+<!--
+  
+
+-->
 <html class="bg-dark">
 
 <head>
@@ -28,9 +32,10 @@
     </header>
 
     <main role="main" class="inner cover">
-      <h1 class="cover-heading p-3">Insert your ticket below then click below to continue</h1>
+      <h1 class="cover-heading p-3">Insert your ticket below then select your parking number</h1>
       <p class="lead"></p>
-      <form action="retrieveTime.php" method="POST">
+      <form action="retrieveTime.php" class="p-3" method="POST">
+        <input type="number" name="slot">
         <input type="submit" class="btn btn-lg btn-primary" value="Go to pay">
       </form>
     </main>
