@@ -30,13 +30,13 @@
     </header>
 
     <main role="main" class="inner cover">
-      <h1 class="display-3 p-3">Insert your ticket below and select your parking number</h1>
+      <h1 class="display-3 p-3">Insert your ticket below and enter your name</h1>
       <p class="lead"></p>
       <div class="container">
         <div class="row">
           <div class="col align-self-center">
-            <form action="../Database/retrieveTime.php" method="POST">
-              <input class="form-control" type="number" name = "slot" value="000">
+            <form action="../Database/retrieveTime.php" method="GET">
+              <input class="form-control" type="text" name="slot" value="name">
               <p></p>
               <input type="submit" class="btn btn-lg btn-primary m-4" value="Go to pay">
             </form>

@@ -10,15 +10,27 @@ include 'DataBaseConnection.php';
 // Sets the default time zone
 date_default_timezone_set('America/New_York');
 
+// // Select these from database and put them in
+// $openSpot = array(1,2,3,4,5);
+// $closedSpot = array();
+
+//   $remove = array_shift($openSpot);
+//   array_push($closedSpot);
+//   sort($closedSpot);
+//   // return $remove;
+
+
+$name = $_REQUEST['name'];
+
 // Grabs the current time and date
-$time = date("g:i a");
+$time = date("H:i:s");
 $date = date("d-m-Y");
 
-$sql = "Insert into records (time, date) values ('$time', '$date')";
+$sql = "Insert into records (name, time, date) values ('$name', '$time', '$date')";
 
 //Opens ticket and writes to it.
 $ticket = fopen("ticket.txt", "w") or die("Unable to open file!");
-$txt = "Thank you for choosing Cornell Inc. Parking Garages\n";
+$txt = "Thank you for choosing Cornell Inc. Parking Garages " . $name . "\n";
 fwrite($ticket, $txt);
 $txt = "Please park at your designated spot\n";
 fwrite($ticket, $txt);
