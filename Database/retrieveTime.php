@@ -1,9 +1,9 @@
 <?php
 /*
-1. Grabs the id number of the customer to retrieve their time spent 
+1. Grabs the name of the customer to retrieve their time spent 
 2. Calculates the payment needed to exit the garage.
 3. Implements the GUI to let the customer know they are good to go. 
-4. Checks successful connection to the database and sends customer to accessGranted.html
+4. Checks successful connection to the database and sends customer to paid.html
 */
 include 'DataBaseConnection.php';
 
@@ -26,19 +26,20 @@ if($result->num_rows > 0) {
     $currentTime = date("H:i:s"); 
     $customerTime = $row['time'];
 
-    // Gets the time stamp for the customers time and current.
-    $current = strtotime('$currentTime');
-    $customer = strtotime('$customerTime');
+    // Gets the times of both customer
+    $current = new DateTime($currentTime);
+    $customer = new DateTime($customerTime);
 
-    $hours = $current - $customer;
+    // Obtain difference 
+    $timeGap = $customer->diff($current);
 
-    // They will have to pay $6.00 regardless even if they stay for less than the rate of $6.00 an hour.
-    if ($hours == 0) {
-      $hours = $hours + 1;
-      $monies = $hours * 6;
-    } else {
-      $monies = $hours * 6; 
-    }
+    // Obtains the minutes of each hour 
+    $hours = $timeGap->format('%h') * 60;
+    $minutes = $timeGap->format('%i');
+
+    // Gets total amount due and formats it 2 decimal places.
+    $amountDue = ($hours + $minutes) / 15;
+    $format = number_format("$amountDue", 2);
   }
 } else {
   echo "We can't find an asssociated name. Please enter another name";
@@ -78,10 +79,10 @@ if($result->num_rows > 0) {
     </header>
 
     <main role="main" class="inner cover">
-      <h1 class="display-2 p-3">Charged for the following hours spent: </h1> 
-      <h1 class="display-2 p-3"><?php print $hours?> hour</h1> 
+      <h1 class="display-2 p-3">You were Charged for the following time: </h1> 
+      <h1 class="display-2 p-3"><?php echo $timeGap->format('%h')." Hours ".$timeGap->format('%i')." Minutes"; ?></h1> 
       <p class="display-3 p-3 m-3">Please provide a form of payment below</p>
-      <h1 class="display-3 p-3 m-3">You were charged: $<?php print $monies?> dollars</h1>
+      <h1 class="display-3 p-3 m-3">You were charged: $<?php print $format;?> dollars</h1>
       <div class="container">
         <div class="row">
           <div class="col align-self-center">
